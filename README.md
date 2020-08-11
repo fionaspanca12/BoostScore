@@ -27,4 +27,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-<email@example.com> (you may write vaild email links also using [fionaspanca12@gmail.com](mailto:fionaspanca12@gmail.com) as protoco
+<fionaspanca12@gmail.com> (you may write vaild email links also using [fionaspanca12@gmail.com](mailto:fionaspanca12@gmail.com) as protoco
