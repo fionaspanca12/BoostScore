@@ -27,4 +27,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 Please make sure to update tests as appropriate.
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[fionaspanca12@gmail.com](https://choosealicense.com/licenses/mit/)
+<email@example.com> (you may write vaild email links also using [mailto](mailto:email@example.com) as protoco
