@@ -3,6 +3,18 @@ BoostScore
 
 BoostScore is a app that offers esports live scores and results.
 
+# Features 
+
+ * **LayoutManagers**
+ * **ItemDecorators** 
+ * **RecyclerView.Adapter**  
+
+
+Do you want to contribute?
+--------------------------
+
+Feel free to report or add any useful feature.
+
 ## Installation
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
