@@ -15,11 +15,16 @@ BoostScore is a app that offers esports live scores and results.
 Screenshot
 --------------------------
 
-<img src="https://user-images.githubusercontent.com/69512672/89970387-0908e780-dc59-11ea-839d-6d73020f74b9.jpg" width="350" title="hover text">
-<img src="https://user-images.githubusercontent.com/69512672/89970388-0a3a1480-dc59-11ea-9e39-a19ebcf5c2b2.jpg" width="350" title="hover text">
-<img src="https://user-images.githubusercontent.com/69512672/89970390-0a3a1480-dc59-11ea-9909-d16763a65712.jpg" width="350" title="hover text">
-<img src="https://user-images.githubusercontent.com/69512672/89970391-0ad2ab00-dc59-11ea-85ee-35c6aa07bb79.jpg" width="350" title="hover text">
-<img src="https://user-images.githubusercontent.com/69512672/89970393-0ad2ab00-dc59-11ea-8881-b2bf030d7e68.jpg" width="350" title="hover text">
+<table width="100%">
+	<tr>
+	  <th width="33%"><img src="https://user-images.githubusercontent.com/69512672/89970387-0908e780-dc59-11ea-839d-6d73020f74b9.jpg"></th>
+	  <th width="33%"><img src="https://user-images.githubusercontent.com/69512672/89970388-0a3a1480-dc59-11ea-9e39-a19ebcf5c2b2.jpg"></th>
+	  <th width="33%"><img src="https://user-images.githubusercontent.com/69512672/89970390-0a3a1480-dc59-11ea-9909-d16763a65712.jpg"></th>
+      <th width="33%"><img src="https://user-images.githubusercontent.com/69512672/89970391-0ad2ab00-dc59-11ea-85ee-35c6aa07bb79.jpg"></th>
+	  <th width="33%"><img src="https://user-images.githubusercontent.com/69512672/89970393-0ad2ab00-dc59-11ea-8881-b2bf030d7e68.jpg"></th>
+	</tr>
+</table>
+
 
 
 
