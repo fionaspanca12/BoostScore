@@ -10,6 +10,11 @@ BoostScore is a app that offers esports live scores and results.
  * **SplashActivity**
  * **Fragments**
  * **RecyclerView.Adapter**  
+ * **SharedPreferences**  
+ * **SQLiteDatabase**  
+ * **MenuItem**  
+ * **Toolbar** 
+
 
 
 Screenshot
