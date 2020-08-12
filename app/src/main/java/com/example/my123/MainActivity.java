@@ -1,28 +1,58 @@
 package com.example.my123;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
-
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    SQLiteDatabase sqLiteDatabase;
     String baseUrl;
     MenuItem menuItemcsgo,menuItemdota2,menuItemlol;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private String[] pageTitle = {"All Games", "Live", "Finished"};
+    ArrayList<String> pageTitle = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        sqLiteDatabase = this.openOrCreateDatabase("pageTitle",MODE_PRIVATE,null);
+        sqLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS articles (title VARCHAR)");
+        sqLiteDatabase.execSQL("INSERT INTO articles (title) VALUES ( 'All Games')");
+        sqLiteDatabase.execSQL("INSERT INTO articles (title) VALUES ( 'Live')");
+        sqLiteDatabase.execSQL("INSERT INTO articles (title) VALUES ( 'Finished')");
+        Cursor c = sqLiteDatabase.rawQuery("SELECT title FROM articles", null);
+
+        int titleIndex = c.getColumnIndex("title");
+        c.moveToFirst();
+        int count = c.getCount();
+
+        while (count != 0){
+
+            try{
+                Log.i("title", c.getString(titleIndex));
+                c.moveToNext();
+                count--;
+                pageTitle.add(c.getString(titleIndex));
+            }
+            catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
 
         viewPager = (ViewPager)findViewById(R.id.view_pager);
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
@@ -115,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     public void viewpager(){
         tabLayout.removeAllTabs();
         for (int i = 0; i < 3; i++) {
-            tabLayout.addTab(tabLayout.newTab().setText(pageTitle[i]));
+            tabLayout.addTab(tabLayout.newTab().setText(pageTitle.get(i)));
         }
         //set viewpager adapter
         ViewPagerAdapter pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
