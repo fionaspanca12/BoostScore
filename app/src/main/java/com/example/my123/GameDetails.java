@@ -3,13 +3,14 @@ package com.example.my123;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
@@ -20,7 +21,6 @@ import com.bumptech.glide.request.target.Target;
 import com.example.my123.Api.ApiClient;
 import com.example.my123.Api.ApiInterface;
 import com.example.my123.TeamData.TeamData;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +36,7 @@ public class GameDetails extends AppCompatActivity {
     ImageView ImgTeam1Player1,ImgTeam1Player2,ImgTeam1Player3,ImgTeam1Player4,ImgTeam1Player5,ImgTeam2Player1,ImgTeam2Player2,ImgTeam2Player3,ImgTeam2Player4,ImgTeam2Player5;
     TextView NameTeam1Player1,NameTeam1Player2,NameTeam1Player3,NameTeam1Player4,NameTeam1Player5,NameTeam2Player1,NameTeam2Player2,NameTeam2Player3,NameTeam2Player4,NameTeam2Player5;
     int Idteam1,Idteam2;
+    ProgressDialog progressDialog;
     int i =0;
 
     @Override
@@ -96,11 +97,35 @@ public class GameDetails extends AppCompatActivity {
 
         NameTeam1.setText(NaTeam1);
         NameTeam2.setText(NaTeam2);
-        LoadJson(Idteam1);
-        LoadJson(Idteam2);
+
+        MyAsyncTasks myAsyncTasks = new MyAsyncTasks();
+        myAsyncTasks.execute();
 
     }
+    public class MyAsyncTasks extends AsyncTask<String, String, String>{
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            // display a progress dialog for good user experiance
+            progressDialog = new ProgressDialog(GameDetails.this);
+            progressDialog.setMessage("Please Wait");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+                LoadJson(Idteam1);
+                LoadJson(Idteam2);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            progressDialog.dismiss();
+        }
+    }
     private void Initialize() {
 
         ImgTeam1=findViewById(R.id.ImgTeam1);
@@ -142,7 +167,6 @@ public class GameDetails extends AppCompatActivity {
                 Log.i("status", "if" );
                 teamData= response.body();
                 setData();
-
 
             }
 
